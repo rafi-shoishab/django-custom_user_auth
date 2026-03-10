@@ -131,3 +131,5 @@ MEDIA_URL = '/media/'
 MEDIA_URL = 'media/'
 
 LOGIN_URL = 'login'
+
+AUTH_USER_MODEL = 'role_system.Customuser' 
