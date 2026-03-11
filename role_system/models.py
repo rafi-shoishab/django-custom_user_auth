@@ -13,18 +13,18 @@ class Customuser(AbstractUser): # inherit abstractuser
     role = models.CharField(max_length=30, choices=ROLE_CHOICE) # 
 
 class RecruiterProfile(models.Model):
-    user = models.OneToOneField(Customuser, on_delete=models.CASCADE)
+    user = models.OneToOneField(Customuser, on_delete=models.CASCADE) # variable = models.primarykey (class name, ....)
     job_title = models.CharField(max_length=30)
     company_name = models.CharField(max_length=30)
 
     def __str__(self):
-        return f"Recruiter {self.user.username}"
+        return f"Recruiter {self.user.username}" # 
     
 class JobSeekerProfile (models.Model):
-    user = models.OneToOneField(Customuser, on_delete=models.CASCADE) #
+    user = models.OneToOneField(Customuser, on_delete=models.CASCADE) # .... ()
     skills = models.CharField()
     bio = models.TextField()
     
     def __str__(self):
-        return f"Seeker {self.user.username}"
+        return f"Seeker {self.user.username}" #
     

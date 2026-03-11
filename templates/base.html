@@ -8,10 +8,25 @@
       {% endblock %}
     </title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   </head>
 
   <body class="bg-gray-100 flex flex-col min-h-screen">
     {% include 'includes/header.html' %}
+
+    {% if messages %}
+      {% for message in messages %}
+        <script>
+          Swal.fire({
+            icon: '{{ message.tags }}',
+            title: '{{ message }}',
+            showConfirmButton: false,
+            timer: 2000
+          })
+        </script>
+      {% endfor %}
+    {% endif %}
+
     {% block content %}
 
     {% endblock %}
